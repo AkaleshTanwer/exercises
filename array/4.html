@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting elements in an array</title>
+    <style>
+        #result {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Input the number of elements to be stored in the array </h1>
+        <input type="text" id="lengthOfArray">
+        <h1>Enter the elements in array </h1>
+        <input type="text" id="elements">
+        <button id="insertBtn">Insert</button>
+        <div id="result">
+        </div>
+        <button onclick="findDuplicates()"> Find Duplicate </button>
+        <h1>Duplicate elements</h1>
+        <div id="DuplicateValues"></div>
+        <h1>Total Number of Duplicate elements</h1>
+        <h1 id="numberOfDuplicates"></h1>
+
+    </center>
+    <script>
+        let arr = [];
+        let insertBtn = document.querySelector('#insertBtn');
+        insertBtn.addEventListener('click', insertElement);
+        function insertElement() {
+            let lengthOfArray = parseInt(document.querySelector('#lengthOfArray').value);
+            if (arr.length == lengthOfArray) {
+                alert('array is full');
+
+            } else {
+                let elements = document.querySelector('#elements').value;
+                arr.push(parseInt(elements));
+                document.querySelector('#result').innerHTML = arr;
+            }
+        }
+        function findDuplicates() {
+            let uniqueElements = new Set(arr);
+            let duplicateElements = arr.filter((item) => {
+                if (uniqueElements.has(item)) {
+                    uniqueElements.delete(item);
+                } else {
+                    return item;
+                }
+            })
+            let setOfDuplicateElements = Array.from(new Set(duplicateElements))
+            document.getElementById('numberOfDuplicates').innerHTML = duplicateElements.length;
+            document.getElementById('DuplicateValues').innerHTML = setOfDuplicateElements;
+        }
+    </script>
+</body>
+
+</html>

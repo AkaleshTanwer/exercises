@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Numbers</title>
+    <style>
+        input {
+            margin: 40px;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <input type="text" name="" id="number" placeholder="enter the  number" required>
+        <input id="submit" value="SUBMIT" type="button">
+        <h1 id="table"></h1>
+    </center>
+    <script>
+        let submit = document.querySelector('#submit');
+        submit.addEventListener('click', () => {
+            let number = document.querySelector('#number').value;
+            if (number == '' || number == null) { alert('please enter the number') } else {
+                let numbers = [];
+                let total = 0;
+                for (let i = 1; i <= 10; i++) {
+                    total = number * i;
+                    numbers.push(total);
+                }
+                document.querySelector('#table').innerHTML = `${numbers}`;
+            }
+        })
+
+    </script>
+</body>
+
+</html>

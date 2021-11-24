@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1>Bill Payment</h1>
+    <form action="#">
+        <h2>Enter Details</h2>
+        <input class="inputs" type="text" id="custId" placeholder="Customer IDNO">
+        <input type="text" class="inputs" id="custName" placeholder="Customer Name">
+        <input type="text" id="unit" class="inputs" placeholder="unit Consumed">
+        <button id="submitBtn" type="submit" class="inputs">submit </button>
+    </form>
+    <div id="result">
+        <p>Customer IDNO : <span id="rcustId"> </span></p>
+        <p>Customer Name : <span id="rcustName"> </span></p>
+        <p>unit Consumed : <span id="runit"> </span></p>
+        <p>Amount Charges @Rs.<span id="unitCharge"></span> per unit <span id="amountCharge">  </span>.00</p>
+        <p>Surchage Amount : <span id="surCharge"></span>.00</p>
+        <p>Net Amount Paid By the Customer : <span id="total"> </span>.00</p>
+    </div>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            document.getElementById('result').style.display = "block";
+        })
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            let custId = document.getElementById('custId').value;
+            let custName = document.getElementById('custName').value;
+            let unit = document.getElementById('unit').value;
+            document.getElementById('rcustId').innerText = custId;
+            document.getElementById('rcustName').innerText = custName;
+            document.getElementById('runit').innerText = unit;
+            unit = parseInt(unit);
+            let amount = 0;
+            if (unit <= 199) {
+                document.getElementById('unitCharge').innerText = 1.20;
+                amount = parseInt(unit * 1.20)
+                if(amount<100){
+                    amount = 100;
+                }
+                document.getElementById('amountCharge').innerText = amount;
+            } else if (unit >= 200 & unit < 400) {
+                document.getElementById('unitCharge').innerText = 1.50;
+                amount = parseInt(unit * 1.50)
+                document.getElementById('amountCharge').innerText = amount;
+            } else if (unit >= 400 & unit < 600) {
+                document.getElementById('unitCharge').innerText = 1.80;
+                amount = parseInt(unit * 1.80)
+                document.getElementById('amountCharge').innerText = amount;
+            } else {
+                document.getElementById('unitCharge').innerText = 2.00; 
+                amount = parseInt(unit * 2.00)
+                document.getElementById('amountCharge').innerText = amount;
+            }
+            let surCharge = 0;
+            if(amount > 400 ){
+                surCharge = (amount/100)*15;
+            }
+            document.getElementById('surCharge').innerText = parseInt(surCharge);
+            let total = amount + surCharge;
+            document.getElementById('total').innerText = parseInt(total);
+        })
+    </script>
+</body>
+
+</html>

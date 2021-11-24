@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <center>
+        <input type="text" name="" id="lengthOfNumbers" placeholder="enter the length of  numbers">
+        <input id="submit" value="SUBMIT" type="button"></input>
+    </center>
+    <div id="result">
+    </div>
+    <script>
+        let submit = document.querySelector('#submit');
+        submit.addEventListener('click', () => {
+            let lengthOfrows = document.querySelector('#lengthOfNumbers').value;
+            let k = 1;
+            for (let i = 1; i <= parseInt(lengthOfrows); i++) {
+                for (let j = 1; j <= i; j++) {
+                    document.querySelector('#result').innerHTML += k + " ";
+                    k += 1;
+                }
+                document.querySelector('#result').innerHTML += '<br>';
+            }
+        })
+
+    </script>
+</body>
+
+</html>

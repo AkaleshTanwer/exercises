@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting elements in an array</title>
+    <style>
+        #result {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Input the number of elements to be stored in  first array </h1>
+        <input type="text" id="lengthOfFirstArray">
+        <h1>Enter the elements in first array </h1>
+        <input type="text" id="firstElements">
+        <button id="firstInsertBtn">Insert</button>
+        <h1 id="showFirstElement"></h1>
+
+
+        <h1>Input the number of elements to be stored in second array </h1>
+        <input type="text" id="lengthOfSecondArray">
+        <h1>Enter the elements in second array </h1>
+        <input type="text" id="secondElements">
+        <button id="secondInsertBtn">Insert</button>
+        <h1 id="showSecondElement"></h1>
+        <button onclick="mergeArrays()"> Merge both arrays </button>
+        <h1>Merged array in descending order</h1>
+        <h1 id="result"></h1>
+        <h1>Merged array in ascending order</h1>
+        <h1 id="result2"></h1>
+    </center>
+    <script>
+        // First Array 
+
+        let arr1 = [];
+        let insertBtn = document.querySelector('#firstInsertBtn');
+        firstInsertBtn.addEventListener('click', insertFirstArrayElements);
+        function insertFirstArrayElements() {
+            let lengthOfFirstArray = parseInt(document.querySelector('#lengthOfFirstArray').value);
+            if (arr1.length == lengthOfFirstArray) {
+                alert('First array is full');
+
+            } else {
+                let firstElements = document.querySelector('#firstElements').value;
+                arr1.push(parseInt(firstElements));
+                document.querySelector('#showFirstElement').innerHTML = arr1;
+            }
+        }
+
+        // Second Array
+        let arr2 = [];
+        let secondInsertBtn = document.querySelector('#secondInsertBtn');
+        secondInsertBtn.addEventListener('click', insertSecondArrayElements);
+        function insertSecondArrayElements() {
+            let lengthOfSecondArray = parseInt(document.querySelector('#lengthOfSecondArray').value);
+            if (arr2.length == lengthOfSecondArray) {
+                alert('Second array is full');
+
+            } else {
+                let secondElements = document.querySelector('#secondElements').value;
+                arr2.push(parseInt(secondElements));
+                document.querySelector('#showSecondElement').innerHTML = arr2;
+            }
+        }
+
+
+        function mergeArrays(){
+            let mergedArray = [];
+            for(var i=0;i<arr1.length;i++){
+                mergedArray.push(arr1[i]);
+            }
+            for(var i=0;i<arr2.length;i++){
+                mergedArray.push(arr2[i]);
+            }
+            for(let i=0;i<mergedArray.length;i++){
+                let swap= 0;
+                for(let j=i+1;j<mergedArray.length;j++){
+                    if(mergedArray[i]<mergedArray[j]){
+                        swap = mergedArray[i];
+                        mergedArray[i] = mergedArray[j];
+                        mergedArray[j] = swap;
+                    }
+                }
+            }
+            document.getElementById('result').innerHTML = mergedArray;
+            for(let i=0;i<mergedArray.length;i++){
+                let swap= 0;
+                for(let j=i+1;j<mergedArray.length;j++){
+                    if(mergedArray[i]>mergedArray[j]){
+                        swap = mergedArray[i];
+                        mergedArray[i] = mergedArray[j];
+                        mergedArray[j] = swap;
+                    }
+                }
+            }
+            document.getElementById('result2').innerHTML = mergedArray;
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

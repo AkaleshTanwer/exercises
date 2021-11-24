@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Numbers</title>
+    <style>
+        input {
+            margin: 40px;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <input type="text" name="" id="numberLength" placeholder="enter the  number" required>
+        <input id="submit" value="SUBMIT" type="button">
+        <div><h1>oddNumbers</h1>
+            <h1 id="oddNumbers"></h1>
+            <h1>even Numbers</h1>
+            <h1 id="total"></h1>
+        </div>
+    </center>
+    <script>
+        let submit = document.querySelector('#submit');
+        submit.addEventListener('click', () => {
+            let number = document.querySelector('#numberLength').value;
+            if (number == '' || number == null) { alert('please enter the number') } else {
+                let oddNumbers = [];
+                let total = 0;
+                for (let i = 1; i <= parseInt(number); i++) {
+                    if (i % 2 != 0) {
+                        oddNumbers.push(i);
+                        total += i;
+                    }
+                }
+                document.querySelector('#oddNumbers').innerHTML = `${oddNumbers}`;
+                document.querySelector('#total').innerHTML = `${total}`;
+            }
+        })
+
+    </script>
+</body>
+
+</html>

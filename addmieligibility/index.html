@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Student Eligibility for Addmision</h1>
+    <form action="#">
+        <h2>fiil the form</h2>
+        <input type="text" id="maths" placeholder="Maths">
+        <input type="text" id="phy" placeholder="Chem">
+        <input type="text" id="chem" placeholder="Phy">
+        <button id="submitBtn" type="submit">submit </button>
+    </form>
+    <div class="restult">
+
+    </div>
+    <script>
+        let subBtn = document.getElementById('submitBtn');
+        subBtn.addEventListener('click', () => {
+            let maths = document.getElementById('maths').value;
+            let phy = document.getElementById('phy').value;
+            let chem = document.getElementById('chem').value;
+            let test1 = false;
+            let test2 = false;
+            if (parseInt(maths) >= 65 & parseInt(phy) >= 55 & parseInt(chem) >= 50) {
+                test1 = true;
+            }
+            let total = parseInt(maths) + parseInt(phy) + parseInt(chem);
+            let totalTwo = parseInt(maths) + parseInt(phy);
+            if (total >= 190 || totalTwo >= 140) {
+                test2 = true;
+            }
+            if(test1 & test2){
+                alert('The candidate is eligible');
+            }else{
+                alert('The candidate is not eligible');
+            }
+
+        })
+    </script>
+</body>
+
+</html>

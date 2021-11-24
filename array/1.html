@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting elements in an array</title>
+    <style>
+        #result{
+            margin: 20px ;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Enter the elements </h1>
+        <input type="text" id="elements">
+        <button id="insertBtn">Insert</button>
+        <div id="result">
+    </center>
+    </div>
+    <script>
+        let arr = [];
+        arr.length = 4;
+        let insertBtn = document.querySelector('#insertBtn');
+        insertBtn.addEventListener('click', insertElement);
+        function insertElement() {
+            console.log(arr);
+            let elements = document.querySelector('#elements').value;
+            arr.push(elements);
+            document.querySelector('#result').innerHTML = arr;
+        }
+    </script>
+</body>
+
+</html>

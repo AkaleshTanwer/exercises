@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    input{
+        margin: 20px;
+        padding: 10px;
+
+    }
+    button{
+        margin: 10px;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <input type="text" placeholder="Enter First Number" id="first">
+    <input type="text" placeholder="Enter Second Number" id="second">
+    <input type="text" placeholder="Result" id="result" readonly>
+    <div><button onclick="add()">Add</button>
+        <button onclick="sub()">Sub</button>
+        <button onclick="div()">div</button>
+        <button onclick="mul()">Mul</button>
+    </div>
+    <script>
+        function add() {
+            let firstNum = parseInt(document.getElementById('first').value);
+            let secNum = parseInt(document.getElementById('second').value);
+            result = firstNum + secNum;
+            document.getElementById('result').value = result;
+        }
+        function sub() {
+            let firstNum = parseInt(document.getElementById('first').value);
+            let secNum = parseInt(document.getElementById('second').value);
+            result = firstNum - secNum;
+            document.getElementById('result').value = result;
+        }
+        function div() {
+            let firstNum = parseInt(document.getElementById('first').value);
+            let secNum = parseInt(document.getElementById('second').value);
+            result = firstNum / secNum;
+            document.getElementById('result').value = result;
+        }
+        function mul() {
+            let firstNum = parseInt(document.getElementById('first').value);
+            let secNum = parseInt(document.getElementById('second').value);
+            result = firstNum * secNum;
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+
+</html>
