@@ -15,14 +15,14 @@
 
 <body>
     <center>
+        <h1>Program for check minimum and maximum vaue in an array </h1>
         <h1>Input the number of elements to be stored in the array </h1>
         <input type="text" id="lengthOfArray">
         <input type="text" id="elements">
         <button id="insertBtn">Insert</button>
         <h1 id="showElement"></h1>
-        <button onclick="ShowFrequency()"> Check Frequency</button>
+        <button onclick="check()"> Check </button>
         <div id="result"></div>
-        <div id="frequency"></div>
 
     </center>
     <script>
@@ -40,21 +40,11 @@
                 document.querySelector('#showElement').innerHTML = arr;
             }
         }
-        function ShowFrequency() {
-            let uniqueElements = new Set(arr);
-            document.querySelector('#result').innerHTML = 'Frequency is :-';
-            let html = "";
-            uniqueElements.forEach(e=>{
-                let count = 0;
-                arr.forEach(check=>{
-                    if(e==check){
-                        count++;
-                    }
-                })
 
-               html += e +  'occures ' + count + ' times<br>' ;
-            })
-            document.querySelector('#frequency').innerHTML = html;
+        function check() {
+            arr.sort((a,b)=>a-b);
+            document.querySelector('#result').innerHTML = `Minimum value is ${arr[0]}  and maximum value is ${arr[arr.length-1]}` ;
+
         }
     </script>
 </body>
