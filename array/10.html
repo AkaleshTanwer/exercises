@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting elements in an array</title>
+    <style>
+        #result {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Program to check odd and even numbers in an array </h1>
+        <h1>Input the number of elements to be stored in the array </h1>
+        <input type="text" id="lengthOfArray">
+        <input type="text" id="elements">
+        <button id="insertBtn">Insert</button>
+        <h1 id="showElement"></h1>
+        <button onclick="check()"> Check </button>
+        <div id="odd"></div>
+        <div id="even"></div>
+
+    </center>
+    <script>
+        // First Array 
+        let arr = [];
+        let insertBtn = document.querySelector('#insertBtn');
+        insertBtn.addEventListener('click', insertArrayElements);
+        function insertArrayElements() {
+            let lengthOfArray = parseInt(document.querySelector('#lengthOfArray').value);
+            if (arr.length == lengthOfArray) {
+                alert('Array is full');
+            } else {
+                let elements = document.querySelector('#elements').value;
+                arr.push(parseInt(elements));
+                document.querySelector('#showElement').innerHTML = arr;
+            }
+        }
+
+        function check() {
+            let even = [];
+            let odd = [];
+            arr.forEach(e=>{
+                if(e % 2 ==0){
+                    even.push(e);
+                }else{
+                    odd.push(e);
+                }
+            })
+            document.querySelector('#odd').innerHTML = 'Odd array are ' +  odd;
+            document.querySelector('#even').innerHTML = "Even array are " + even;
+
+        }
+    </script>
+</body>
+
+</html>

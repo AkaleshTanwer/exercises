@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserting elements in an array</title>
+    <style>
+        #result {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Program to set an array to descending order. </h1>
+        <h1>Input the number of elements to be stored in the array </h1>
+        <input type="text" id="lengthOfArray">
+        <input type="text" id="elements">
+        <button id="insertBtn">Insert</button>
+        <h1 id="showElement"></h1>
+        <button onclick="descend()"> Descend </button>
+        <div id="result"></div>
+
+    </center>
+    <script>
+        // First Array 
+        let arr = [];
+        let insertBtn = document.querySelector('#insertBtn');
+        insertBtn.addEventListener('click', insertArrayElements);
+        function insertArrayElements() {
+            let lengthOfArray = parseInt(document.querySelector('#lengthOfArray').value);
+            if (arr.length == lengthOfArray) {
+                alert('Array is full');
+            } else {
+                let elements = document.querySelector('#elements').value;
+                arr.push(parseInt(elements));
+                document.querySelector('#showElement').innerHTML = arr;
+            }
+        }
+
+        function descend() {
+
+            let descend = arr.sort((a,b)=>b-a)
+            document.querySelector('#result').innerHTML = descend;
+        }
+    </script>
+</body>
+</html>
