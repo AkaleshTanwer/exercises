@@ -15,7 +15,7 @@
 
 <body>
     <center>
-        <h1>Program to insert new element in an array (sorted array) </h1>
+        <h1>👨‍💻 Program to insert new element in an array (sorted array) 👨‍💻</h1>
         <h1>Input the number of elements to be stored in the array </h1>
         <input type="text" id="lengthOfArray">
         <input type="text" id="elements">
@@ -25,7 +25,12 @@
         <div id="result"></div>
         <h1>Write new element in bellow input box</h1>
         <input type="text" id="newElement">
-        <input type="button" id="newElementbtn" value="Add new Element"onclick="insertNewElement()" >
+        <input type="button" id="newElementbtn" value="Add new Element" onclick="insertNewElement()">
+        <h1>New Array</h1>
+        <div id="newArray">
+
+        </div>
+
 
     </center>
     <script>
@@ -46,19 +51,26 @@
         let descendArr = [];
         function descend() {
 
-            descendArr = arr.sort((a,b)=>a-b);
-            
+            descendArr = arr.sort((a, b) => a - b);
+
             document.querySelector('#result').innerHTML = descendArr;
         }
-        let insertNewElement = ()=>{
+        let insertNewElement = () => {
             let newElement = parseInt(document.querySelector('#newElement').value);
-            descendArr.forEach(e=>{
-                if(e<newElement){
-                    
+            for (const i of descendArr) {
+                if (i >= newElement) {
+                    descendArr.splice(descendArr.indexOf(i), 0, newElement);
+                    document.querySelector('#newArray').innerHTML = descendArr;
+                    break;
+                } else if (descendArr.indexOf(i) == descendArr.length - 1) {
+                    console.log(descendArr.indexOf(i) + ' and new element ' + newElement);
+                    descendArr.splice(descendArr.indexOf(i)+1, 0, newElement);
+                    document.querySelector('#newArray').innerHTML = descendArr;
+                    break;
                 }
-            })
-
+            }
         }
     </script>
 </body>
+
 </html>
